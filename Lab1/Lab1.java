@@ -28,26 +28,26 @@ public class Lab1 {
 
         System.out.print("\nВведіть символ-заповнювач: ");
         filler = in.nextLine();
-        exit:
-        for(int i = 0; i < nRows; i++) {
-            for(int j = 0; j < i+1; j++) {
-                if(filler.length() == 1) {
-                    arr[i][j] = (char) filler.codePointAt(0);
-                    System.out.print(arr[i][j] + " ");
-                    fout.print(arr[i][j] + " ");
+                exit:
+                for(int i = 0; i < nRows; i++) {
+                    for(int j = 0; j < i+1; j++) {
+                        if(filler.length() == 1) {
+                            arr[i][j] = (char) filler.codePointAt(0);
+                            System.out.print(arr[i][j] + " ");
+                            fout.print(arr[i][j] + " ");
+                        }
+                        else if (filler.length() == 0) {
+                            System.out.print("\nНе введено символ заповнювач");
+                            break exit;
+                        }
+                        else {
+                            System.out.print("\nЗабагато символів заповнювачів");
+                            break exit;
+                        }
+                    }
+                    System.out.print("\n");
+                    fout.print("\n");
                 }
-                else if (filler.length() == 0) {
-                    System.out.print("\nНе введено символ заповнювач");
-                    break exit;
-                }
-                else {
-                    System.out.print("\nЗабагато символів заповнювачів");
-                    break exit;
-                }
-            }
-            System.out.print("\n");
-            fout.print("\n");
-        }
         fout.flush();
         fout.close();
     }

@@ -1,0 +1,14 @@
+class lamp -->
+    modelName
+    class battery     -->
+        nominalVoltage
+        capacity
+        manufacturer?
+    LampSocket  -->
+        type
+        diameter
+    class lightType -->
+        lightSource
+        temperature
+    wattage
+    luminousFlux

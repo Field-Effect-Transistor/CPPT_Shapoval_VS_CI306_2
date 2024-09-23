@@ -7,8 +7,8 @@
     public class Lab1ShapovalCE306 {
         /**
          * Статичний метод main є точкою входу в програму
-         * @param args
-         * @throws FileNotFoundException
+         * @param args аргументи командного рядка
+         * @throws FileNotFoundException якщо файл не знайдено
          */
         public static void main(String[] args) throws FileNotFoundException {
             int rows;

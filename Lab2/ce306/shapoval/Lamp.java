@@ -9,6 +9,7 @@ import java.io.*;
 * Class <code>Lamp</code> implements lamp details
 */
 public class Lamp {
+    //private Object battery_;
     private LampBattery battery;
     private LampType type;
     private LampSocket socket;
@@ -19,7 +20,7 @@ public class Lamp {
     * @throws FileNotFoundException
     */
     public Lamp() throws FileNotFoundException {
-        battery = new LampBattery();
+        battery = null;
         type = new LampType();
         socket = new LampSocket();
         fout = new PrintWriter(new File("lamp_log.txt"));
@@ -44,10 +45,13 @@ public class Lamp {
     * @return Lamp's information
     */
     public String getLampInfo() {
-        String info = "Лампа:\n" +
-                      battery.checkStatus() + "\n" +
-                      type.displayDetails() + "\n" +
-                      socket.getSocketInfo();
+        String info = "Лампа:\n";
+        if (battery != null) {
+            info += battery.checkStatus() + "\n";
+        }
+        info += type.displayDetails() + "\n" +
+            socket.getSocketInfo();
+
         fout.println(info);
         fout.flush();
         return info;
@@ -56,41 +60,35 @@ public class Lamp {
     /**
     * Method charges the battery
     * @param amount The amount to charge
+    * @return <code>true</code> if the charge was successful, <code>false</code> otherwise
     */
-    public void chargeBattery(double amount) {
-        battery.charge(amount);
-        fout.printf("Батарея була заряджена на %.2f мАг.\n", amount);
+    public boolean chargeBattery(double amount) {
+        if(battery != null) {
+            battery.charge(amount);
+            fout.printf("Батарея була заряджена на %.2f мАг.\n", amount);
+            fout.flush();
+            return true;
+        }
+        fout.println("Батарея не існує");
         fout.flush();
+        return false;
     }
 
     /**
     * Method discharges the battery
     * @param amount The amount to discharge
+    * @return <code>true</code> if the discharge was successful, <code>false</code> otherwise
     */
-    public void dischargeBattery(double amount) {
-        battery.discharge(amount);
-        fout.printf("Батарея була розряджена на %.2f мАг.\n", amount);
+    public boolean dischargeBattery(double amount) {
+        if (battery != null) {
+            battery.discharge(amount);
+            fout.printf("Батарея була розряджена на %.2f мАг.\n", amount);
+            fout.flush();
+            return true;
+        }
+        fout.println("Батарея не існує");
         fout.flush();
-    }
-
-    /**
-    * Method changes the lamp type
-    * @param newType New <code>LampType</code>
-    */
-    public void changeLampType(LampType newType) {
-        this.type = newType;
-        fout.println("Тип лампи змінено на: " + newType.getType());
-        fout.flush();
-    }
-
-    /**
-    * Method changes the socket type
-    * @param newSocket New <code>LampSocket</code>
-    */
-    public void changeSocket(LampSocket newSocket) {
-        this.socket = newSocket;
-        fout.println("Цоколь змінено на: " + newSocket.getType());
-        fout.flush();
+        return false;
     }
 
     /**
@@ -98,6 +96,14 @@ public class Lamp {
     * @return Current battery capacity
     */
     public double getCurrentBatteryCapacity() {
+        if (battery == null) {
+            fout.println("Батарея не існує");
+            fout.flush();
+            return 0;
+        }
+
+        fout.println("Значення потужності батареєю: " + battery.getCurrentCapacity());
+        fout.flush();
         return battery.getCurrentCapacity();
     }
 
@@ -106,6 +112,12 @@ public class Lamp {
     * @return Current status of the lamp
     */
     public String checkLampStatus() {
+        if (battery == null) {
+            fout.println("Батарея не існує");
+            fout.flush();
+            return "Батарея не існує";
+        }
+        
         String status = battery.checkStatus();
         fout.println("Стан лампи перевірено: " + status);
         fout.flush();

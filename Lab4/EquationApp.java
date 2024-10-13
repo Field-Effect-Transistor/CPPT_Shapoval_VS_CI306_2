@@ -12,8 +12,8 @@ public class EquationApp {
             PrintWriter fout = new PrintWriter(new File(in.nextLine()));
             try {
                 System.out.print("Enter x in degrees:\t");
-                double result = new Equation().calculate(in.nextDouble());
-                fout.println(result);
+                //double result = new Equation().calculate(in.nextDouble());
+                fout.println(new Equation().calculate(in.nextDouble()));
                 System.out.println("Result saved to file.");
             } catch (CalcException calcException) {
                 System.out.println(calcException.getMessage());

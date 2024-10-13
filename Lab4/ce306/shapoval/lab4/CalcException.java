@@ -5,7 +5,7 @@ package ce306.shapoval.lab4;
 * @author Shapoval
 * @version 1.0
 */
-class CalcException extends ArithmeticException {
+public class CalcException extends ArithmeticException {
     public CalcException(){}
 
     public CalcException(String cause) {

@@ -5,7 +5,7 @@ package ce306.shapoval.lab4;
 * @author Shapoval
 * @version 1.0
 */
-class Equation {
+public class Equation {
     
     /**
      * Calculate value of ( y = 1/ctg(2x)) expression for a given angle x in
@@ -14,7 +14,7 @@ class Equation {
      * @return value of ( y = 1/ctg(2x)) for given angle x
      * @throws CalcException if given argument is equal or near to 45 degrees
      */
-    double calculate(double x) throws CalcException {
+    public double calculate(double x) throws CalcException {
         x = x % 90;
         double y;
         double rad = x * Math.PI / 180;

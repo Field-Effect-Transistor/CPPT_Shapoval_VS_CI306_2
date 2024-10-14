@@ -3,9 +3,20 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * Driver class to test the Lamp class functionality
+ * The <code>LampApp</code> class is a driver class that tests the functionality
+ * of the <code>Lamp</code> class. It provides a console menu for users to interact
+ * with a lamp object, allowing them to charge and discharge the battery, check the
+ * status, and retrieve lamp information.
  */
 public class LampApp {
+    /**
+     * The entry point of the application. It initializes the <code>Lamp</code> object
+     * and displays a menu for user interaction. The user can choose from various options
+     * such as getting lamp information, charging the battery, discharging the battery,
+     * checking the battery status, and exiting the application.
+     *
+     * @param args Command line arguments (not used in this application)
+     */
     public static void main(String[] args) {
         // Scanner to read user input
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +26,7 @@ public class LampApp {
         try {
             lamp = new Lamp(new LampBattery(), new LampType(), new LampSocket());
         } catch (FileNotFoundException e) {
-            System.out.println("Помилка: Неможливо створити файл для запису даних.");
+            System.out.println("Error: Unable to create file for logging data.");
             return;
         }
 
@@ -24,13 +35,13 @@ public class LampApp {
         while (!exit) {
             // Displaying menu options
             System.out.println("===== Lamp Menu =====");
-            System.out.println("1. Отримати інформацію про лампу");
-            System.out.println("2. Зарядити батарею");
-            System.out.println("3. Розрядити батарею");
-            System.out.println("4. Перевірити статус батареї");
-            System.out.println("5. Перевірити поточну ємність батареї");
-            System.out.println("6. Вийти");
-            System.out.print("Введіть ваш вибір: ");
+            System.out.println("1. Get lamp information");
+            System.out.println("2. Charge battery");
+            System.out.println("3. Discharge battery");
+            System.out.println("4. Check battery status");
+            System.out.println("5. Check current battery capacity");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
             switch (choice) {
@@ -38,35 +49,35 @@ public class LampApp {
                     System.out.println(lamp.getLampInfo());
                     break;
                 case 2:
-                    System.out.print("Введіть кількість заряду: ");
+                    System.out.print("Enter charge amount: ");
                     double chargeAmount = scanner.nextDouble();
                     if (lamp.chargeBattery(chargeAmount)) {
-                        System.out.println("Батарею заряджено.");
+                        System.out.println("Battery charged.");
                     } else {
-                        System.out.println("Не вдалося зарядити батарею.");
+                        System.out.println("Failed to charge battery.");
                     }
                     break;
                 case 3:
-                    System.out.print("Введіть кількість розряду: ");
+                    System.out.print("Enter discharge amount: ");
                     double dischargeAmount = scanner.nextDouble();
                     if (lamp.dischargeBattery(dischargeAmount)) {
-                        System.out.println("Батарею розряджено.");
+                        System.out.println("Battery discharged.");
                     } else {
-                        System.out.println("Не вдалося розрядити батарею.");
+                        System.out.println("Failed to discharge battery.");
                     }
                     break;
                 case 4:
-                    System.out.println("Статус батареї: " + lamp.checkLampStatus());
+                    System.out.println("Battery status: " + lamp.checkLampStatus());
                     break;
                 case 5:
-                    System.out.println("Поточна ємність батареї: " + lamp.getCurrentBatteryCapacity());
+                    System.out.println("Current battery capacity: " + lamp.getCurrentBatteryCapacity());
                     break;
                 case 6:
-                    System.out.println("Вихід.");
+                    System.out.println("Exiting.");
                     exit = true;
                     break;
                 default:
-                    System.out.println("Невірний вибір.");
+                    System.out.println("Invalid choice.");
             }
         }
 

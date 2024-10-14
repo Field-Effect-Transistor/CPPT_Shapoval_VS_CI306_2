@@ -1,4 +1,4 @@
-package ce306.shapoval.lab4;
+package ce306.shapoval.lab5;
 /**
 * Class <code>Equations</code> implements method for ( y = 1/ctg(2x)) expression
 * calculation

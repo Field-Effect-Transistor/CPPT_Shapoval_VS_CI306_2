@@ -1,4 +1,4 @@
-package ce306.shapoval.lab4;
+package ce306.shapoval.lab5;
 
 /**
 * Class <code>CalcException</code> more precises ArithmeticException

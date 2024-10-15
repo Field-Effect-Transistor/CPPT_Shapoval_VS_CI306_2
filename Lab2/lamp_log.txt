@@ -1,0 +1,12 @@
+Лампа:
+Battery is in normal condition.
+Lamp Type: Incandescent Lamps
+Energy Efficiency: 12.0 W/Lm
+Lifespan: 1000.0 hours
+Socket Type: E5
+Socket Shape: threaded connection
+Socket Diameter: 5.0 mm
+
+Батарея була розряджена на 400.00 мАг.
+Значення потужності батареєю: 1100.0
+Стан лампи перевірено: Battery is in normal condition.

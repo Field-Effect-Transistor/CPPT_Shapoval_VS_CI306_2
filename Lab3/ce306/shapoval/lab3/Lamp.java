@@ -1,5 +1,5 @@
 /**
-* lab 2 package
+* lab 3 package
 */
 package ce306.shapoval.lab3;
 

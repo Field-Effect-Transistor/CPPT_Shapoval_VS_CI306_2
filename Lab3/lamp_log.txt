@@ -1,3 +1,5 @@
+Лампу увімкнено.
+Лампу вимкнено.
 Лампа:
 Battery is in normal condition.
 Socket Type: E5
@@ -9,16 +11,6 @@ Battery is in normal condition.
 Socket Type: E5
 Socket Shape: threaded connection
 Socket Diameter: 5.0 mm
-The current lamp color is: RGB(255, 255, 255)
-Лампа:
-Battery is in normal condition.
-Socket Type: E5
-Socket Shape: threaded connection
-Socket Diameter: 5.0 mm
+Енергоефективність лампи: 80.00%
+Лампа вимкнена
 
-Лампа:
-Battery is in normal condition.
-Socket Type: E5
-Socket Shape: threaded connection
-Socket Diameter: 5.0 mm
-The current lamp color is: RGB(0, 0, 0)

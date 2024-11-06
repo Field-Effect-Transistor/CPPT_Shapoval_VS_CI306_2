@@ -9,7 +9,6 @@ import java.io.*;
 * Class <code>Lamp</code> implements lamp details
 */
 public abstract class Lamp {
-    //private Object battery_;
     protected LampBattery battery;
     protected LampSocket socket;
     protected PrintWriter fout;

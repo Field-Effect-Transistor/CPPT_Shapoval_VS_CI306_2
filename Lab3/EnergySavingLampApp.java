@@ -28,6 +28,7 @@ public class EnergySavingLampApp {
             lamp = new EnergySavingLamp(new LampBattery(), new LampSocket(), 0.8); // 80% efficiency
         } catch (FileNotFoundException e) {
             System.out.println("Error: Unable to create file for logging data.");
+            scanner.close();
             return;
         }
 
